@@ -14,9 +14,7 @@ from starlette.requests import Request
 from youtube_transcript_api import YouTubeTranscriptApi
 import os
 from pathlib import Path
-CERT_PATH = Path(__file__).parent.parent / "iav-certs.pem"  
-os.environ["REQUESTS_CA_BUNDLE"] = str(CERT_PATH)
-os.environ["SSL_CERT_FILE"] = str(CERT_PATH)
+
 server = Server("transcript-server")
 sse = SseServerTransport("/messages")
 
